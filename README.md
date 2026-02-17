@@ -1,9 +1,5 @@
-# Ghost Net Fishing – IPWA02-01
+Die Anwendung wird als Spring-Boot-Webanwendung umgesetzt. 
+Zum Einsatz kommen Spring MVC mit Thymeleaf für die Weboberfläche sowie Spring Data JPA 
+mit Hibernate als JPA-Provider und einer relationalen H2-Datenbank im File-Modus 
+zur persistenten Datenhaltung.
 
-Dieses Repository enthält den Quellcode und die Projektstruktur
-für die Fallstudie „Ghost Net Fishing“ im Modul IPWA02-01
-(Programmierung von industriellen Informationssystemen mit Java EE).
-
-Die Anwendung wird als Java-EE-Webanwendung mit JSF, CDI und JPA umgesetzt.
-Die Projektstruktur dient als Grundlage für die prototypische Implementierung
-der in der Fallstudie beschriebenen Anforderungen.

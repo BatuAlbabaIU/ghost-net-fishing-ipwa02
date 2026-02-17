@@ -1,0 +1,45 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Netz-Details</title>
+</head>
+<body>
+<h1>Netz-Details</h1>
+
+<div th:if="${param.error}">
+    <p style="color:red;">Für "Verschollen" sind Name und Telefon Pflicht.</p>
+</div>
+
+<p><b>ID:</b> <span th:text="${net.id}"></span></p>
+<p><b>Koordinaten:</b> <span th:text="${net.latitude} + ', ' + ${net.longitude}"></span></p>
+<p><b>Größe:</b> <span th:text="${net.size}"></span></p>
+<p><b>Status:</b> <span th:text="${net.status}"></span></p>
+<p><b>Bergende Person:</b> <span th:text="${net.salvorName} ?: '-'"></span></p>
+
+<hr/>
+
+<h2>Zur Bergung übernehmen</h2>
+<form method="post" th:action="@{'/net/' + ${net.id} + '/claim'}">
+    <label>Name: <input name="salvorName"/></label><br/><br/>
+    <label>Telefon: <input name="salvorPhone"/></label><br/><br/>
+    <button type="submit">Übernehmen</button>
+</form>
+
+<hr/>
+
+<h2>Abschluss</h2>
+<form method="post" th:action="@{'/net/' + ${net.id} + '/recovered'}">
+    <button type="submit">Als geborgen markieren</button>
+</form>
+
+<h3>Als verschollen melden</h3>
+<form method="post" th:action="@{'/net/' + ${net.id} + '/missing'}">
+    <label>Name: <input name="reporterName"/></label><br/><br/>
+    <label>Telefon: <input name="reporterPhone"/></label><br/><br/>
+    <button type="submit">Als verschollen melden</button>
+</form>
+
+<p><a href="/">Zurück</a></p>
+</body>
+</html>

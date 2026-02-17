@@ -1,0 +1,27 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Ghost Net Fishing</title>
+</head>
+<body>
+<h1>Ghost Net Fishing</h1>
+
+<p><a href="/report">Geisternetz melden</a></p>
+
+<h2>Offene Geisternetze</h2>
+<table border="1" cellpadding="6">
+    <tr>
+        <th>ID</th><th>Koordinaten</th><th>Größe</th><th>Status</th><th>Aktion</th>
+    </tr>
+    <tr th:each="n : ${nets}">
+        <td th:text="${n.id}"></td>
+        <td th:text="${n.latitude} + ', ' + ${n.longitude}"></td>
+        <td th:text="${n.size}"></td>
+        <td th:text="${n.status}"></td>
+        <td><a th:href="@{'/net/' + ${n.id}}">Details</a></td>
+    </tr>
+</table>
+
+</body>
+</html>
